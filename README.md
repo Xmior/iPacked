@@ -66,7 +66,7 @@ Sign in with your Apple ID, and iPacked shows every app you've ever bought or do
 
 ![Archive.org](docs/screenshots/archive-org.png)
 
-### 📱 Devices: install anywhere, even on vintage iPhones
+### 📱 Devices: install anywhere, old or new devices!
 - Plug in an iPhone / iPad and it's detected instantly
 - **Install IPAs** on modern devices, plus **legacy iOS support** (down to iOS 5 over SSLv3/TLS 1.0, with automatic libimobiledevice fallback)
 - **Dump decrypted IPAs** with a guided method picker: device archive, Clutch, dumpdecrypted, flexdecrypt, bfdecrypt, CrackerXI+, frida-ios-dump, bagbak + Frida, TrollDecrypt. Methods that don't fit your iOS version are greyed out automatically
@@ -75,6 +75,7 @@ Sign in with your Apple ID, and iPacked shows every app you've ever bought or do
 > [!WARNING]
 > **Dump methods: testing is still in progress.** So far only **Clutch** has been tested end to end. Frida-based methods (frida-ios-dump, bagbak + Frida), TrollDecrypt, flexdecrypt, bfdecrypt, CrackerXI+ and dumpdecrypted are included but **not fully tested yet**, so they may not work on every device or iOS version.
 > It's best to **install these tools yourself** from their official sources (on the device and on your Mac) and follow each tool's own instructions. iPacked's guides point you there. Reports and pull requests are very welcome!
+> Installing the applications on newer devices has not yet been tested.
 
 
 ![Devices](docs/screenshots/devices.png)
