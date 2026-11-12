@@ -8,7 +8,7 @@
 
 **Tüm App Store geçmişin, her sürüm, her platform, Mac'inde arşivli.**
 
-Sahip olduğun uygulamaların eski sürümlerini indir, sonsuza kadar sakla, herhangi bir iPhone ya da iPad'e kur (iOS 5'e kadar), SHSH bloblarını kaydet ve şifresi çözülmüş IPA dump'ları al. Hepsi tek bir yerel macOS uygulamasında.
+Sahip olduğun uygulamaların eski sürümlerini indir, sonsuza kadar sakla, herhangi bir iPhone ya da iPad'e kur, SHSH bloblarını kaydet ve şifresi çözülmüş IPA dump'ları al. Hepsi tek bir yerel macOS uygulamasında.
 
 ![macOS](https://img.shields.io/badge/macOS-12%2B-black?logo=apple)
 ![Tauri](https://img.shields.io/badge/Tauri-2-24C8DB?logo=tauri)
