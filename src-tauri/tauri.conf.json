@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "iPacked",
+  "version": "1.2.1",
+  "identifier": "com.ipacked.app",
+  "build": { "frontendDist": "../ui" },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      { "title": "iPacked", "width": 1200, "height": 780, "minWidth": 900, "minHeight": 600, "titleBarStyle": "Overlay", "hiddenTitle": true }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": { "enable": true, "scope": ["$DOCUMENT/iPacked/**", "$APPDATA/**"] }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["app"],
+    "icon": ["icons/icon.png", "icons/icon.icns"],
+    "externalBin": ["binaries/ipatool", "binaries/ipacked-legacy"],
+    "resources": { "icons/Assets.car": "Assets.car", "binaries/fpdecrypt": "fpdecrypt", "binaries/tsschecker": "tsschecker", "binaries/bundle-icon": "bundle-icon" },
+    "macOS": { "minimumSystemVersion": "12.0", "signingIdentity": "-" }
+  }
+}

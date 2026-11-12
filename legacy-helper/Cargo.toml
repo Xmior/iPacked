@@ -1,0 +1,16 @@
+[package]
+name = "ipacked-legacy"
+version = "0.1.0"
+edition = "2024"
+description = "iPacked helper for old iOS devices (SSLv3/TLS1.0 via OpenSSL): AFC2 upload, SpringBoard icons"
+
+[dependencies]
+idevice = { path = "vendor/idevice", default-features = false, features = ["full", "openssl"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "fs"] }
+openssl = { version = "0.10", features = ["vendored"] }
+
+[profile.release]
+opt-level = "s"
+strip = true
+
+[workspace]

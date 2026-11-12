@@ -1,0 +1,44 @@
+[package]
+name = "ipacked"
+version = "1.2.1"
+edition = "2024"
+description = "iPacked - iOS app version archiver"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-dialog = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1.43", features = ["rt-multi-thread", "process", "fs", "time", "sync", "macros"] }
+anyhow = "1"
+log = "0.4"
+env_logger = "0.11"
+plist = "1.8"
+goblin = "0.9"
+zip = "8.6"
+flate2 = "1.1"
+md-5 = "0.10"
+sha1 = "0.10"
+sha2 = "0.10"
+hex = "0.4"
+chrono = { version = "0.4", features = ["serde"] }
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls"] }
+base64 = "0.22"
+futures = "0.3"
+rustls = { version = "0.23", default-features = false, features = ["std", "tls12", "ring"] }
+idevice = { git = "https://github.com/jkcoxson/idevice", rev = "5171e34e3a236842af1160a84d955d037ddca3af", default-features = false, features = ["full", "ring"] }
+
+plume_core = { path = "../../impactor-main/crates/plume_core", features = ["tweaks"] }
+plume_utils = { path = "../../impactor-main/crates/plume_utils" }
+plume_store = { path = "../../impactor-main/crates/plume_store" }
+
+[patch.crates-io]
+apple-codesign = { path = "../../impactor-main/3rdparty/apple-codesign-0.29.0" }
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true

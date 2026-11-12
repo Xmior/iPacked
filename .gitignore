@@ -1,0 +1,24 @@
+# Bağımlılıklar ve derleme çıktıları
+node_modules/
+**/target/
+src-tauri/gen/
+
+# Derlenmiş sidecar / yardımcı binary'ler (Releases'ta dağıtılır)
+src-tauri/binaries/
+*.deb
+
+# Apple lisanslı SF Symbols — scripts/render-sf-symbols.swift ile üretilir
+ui/sf/
+
+# Uygulama verileri ve gizli bilgiler
+*.ipa
+*.p12
+*.p8
+*.mobileprovision
+.env*
+
+# Sistem / editör
+.DS_Store
+.claude/
+.vscode/
+.idea/

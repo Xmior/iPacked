@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iPacked</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="drag" data-tauri-drag-region></div>
+      <div class="brand">iPacked</div>
+      <nav>
+        <button class="nav active" data-view="library" data-sf="person.text.rectangle"><span>AppleID Library</span></button>
+        <button class="nav" data-view="archive" data-sf="archivebox"><span>IPA Archive</span></button>
+        <button class="nav" data-view="devices" data-sf="ipad.and.iphone"><span>Devices</span></button>
+        <button class="nav" data-view="blobs" data-sf="lock.shield"><span>Blobs</span></button>
+        <button class="nav" data-view="settings" data-sf="gearshape"><span>Settings</span></button>
+      </nav>
+      <div class="sidebar-foot"><span data-sf="person.crop.circle"></span> <span id="foot"></span></div>
+      <div class="side-resize" title="Drag to resize"></div>
+    </aside>
+    <button id="side-toggle" class="side-toggle" data-sf="sidebar.left" title="Hide / show sidebar"></button>
+
+    <main>
+      <div class="drag top" data-tauri-drag-region></div>
+
+      <!-- Library -->
+      <section id="view-library" class="view active">
+        <header class="bar">
+          <h1>Library</h1>
+          <select id="lib-platform" class="select" title="Store">
+            <option value="all">All</option>
+            <option value="">iPhone & iPad</option>
+            <option value="macos">Mac</option>
+            <option value="appletv">Apple TV</option>
+            <option value="watchos">Apple Watch</option>
+            <option value="visionos">Apple Vision</option>
+          </select>
+          <div class="seg">
+            <button class="seg-btn active" data-src="owned" data-sf="cart">Purchased</button>
+            <button class="seg-btn" data-src="search" data-sf="magnifyingglass">Search App Store</button>
+          </div>
+          <input id="lib-filter" class="search" placeholder="Filter…" />
+          <span id="lib-sync" class="sync hidden" title="Refreshing purchases from the App Store"></span>
+          <button id="lib-add" class="btn" data-sf="plus.circle" title="Add an app missing from the list (delisted) by ID">Add by ID</button>
+          <button id="lib-refresh" class="btn" data-sf="arrow.clockwise">Refresh</button>
+          <button id="lib-downloads" class="btn" data-sf="arrow.down.circle">Downloads <span id="dl-badge" class="badge hidden"></span></button>
+        </header>
+        <div id="dl-panel" class="dl-panel hidden"></div>
+        <div id="lib-login" class="empty hidden">
+          <p>You're not signed in to the App Store.</p>
+          <button class="btn primary" data-goto="settings">Sign in</button>
+        </div>
+        <div class="split">
+          <div id="lib-list" class="list"></div>
+          <div id="lib-detail" class="detail"><div class="empty">Select an app to see its versions.</div></div>
+        </div>
+      </section>
+
+      <!-- Archive -->
+      <section id="view-archive" class="view">
+        <header class="bar">
+          <h1>Archive</h1>
+          <input id="arc-filter" class="search" placeholder="Search: name, bundle ID, version, hash…" />
+          <select id="arc-sort" class="select" title="Sort">
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+            <option value="bid">Bundle ID A → Z</option>
+            <option value="bidza">Bundle ID Z → A</option>
+            <option value="date">Release date (newest)</option>
+            <option value="dateold">Release date (oldest)</option>
+            <option value="added">Recently added</option>
+            <option value="size">Size</option>
+            <option value="count">Version count</option>
+          </select>
+          <div class="seg" title="View">
+            <button class="seg-btn" data-arcview="grid" data-sf="square.grid.2x2" title="Cards"></button>
+            <button class="seg-btn" data-arcview="list" data-sf="list.bullet" title="List"></button>
+            <button class="seg-btn" data-arcview="icons" data-sf="app.badge" title="Icons"></button>
+          </div>
+          <button id="arc-import" class="btn" data-sf="square.and.arrow.down">Import IPA</button>
+          <button id="arc-macdec" class="btn" data-sf="key.fill" title="Pick encrypted IPAs and dump them one by one on the connected device">Select to dump</button>
+          <button id="arc-open" class="btn" data-sf="folder">Open folder</button>
+          <button id="arc-dumps" class="btn" data-sf="key.fill" title="Dump queue">Dumps <span class="badge hidden dump-badge"></span></button>
+        </header>
+        <div id="arc-selbar" class="selbar hidden"></div>
+        <div id="arc-list" class="cards"></div>
+      </section>
+
+      <!-- Devices -->
+      <section id="view-devices" class="view">
+        <header class="bar">
+          <h1>Devices</h1>
+          <select id="dev-select" class="select"></select>
+          <div class="seg">
+            <button class="seg-btn active" data-devtab="apps" data-sf="square.grid.2x2">Apps</button>
+            <button class="seg-btn" data-devtab="files" data-sf="folder">Files</button>
+          </div>
+          <input id="dev-filter" class="search" placeholder="Search…" />
+          <button id="dev-refresh" class="btn icon-only" data-sf="arrow.clockwise" title="Refresh"></button>
+          <button id="dev-install-file" class="btn" data-sf="square.and.arrow.down.on.square">Install IPA…</button>
+          <button id="dev-ssh" class="btn" data-sf="network" title="SSH for Clutch: device IP or USB">SSH</button>
+          <button id="dev-setdev" class="btn" data-sf="wrench.and.screwdriver" title="Dump methods and requirements for this device">Set Device</button>
+          <button id="dev-dumps" class="btn" data-sf="key.fill" title="Dump queue">Dumps <span class="badge hidden dump-badge"></span></button>
+          <button id="dev-logbtn" class="btn" data-sf="doc.text" title="Everything iPacked does with the device">Log</button>
+        </header>
+        <div class="toolsrow"><div id="dev-tools" class="toolsbar"></div><div id="dev-clutch" class="toolsbar"></div></div>
+        <div id="dev-logwrap" class="logwrap"><pre id="dev-log" class="log hidden"></pre><button id="dev-log-x" class="logx" title="Close">×</button></div>
+        <div id="dev-progress" class="progress hidden"><div class="fill"></div><span></span></div>
+        <div id="dev-dump" class="dump-card hidden"></div>
+        <div id="dev-apps" class="table-wrap"></div>
+        <div id="dev-fs" class="fs hidden"></div>
+      </section>
+
+      <!-- SHSH blobs -->
+      <section id="view-blobs" class="view">
+        <header class="bar">
+          <h1>SHSH Blobs</h1>
+          <input id="blob-filter" class="search" placeholder="Search devices…" />
+          <button id="blob-add-conn" class="btn" data-sf="cable.connector">Add connected device</button>
+          <button id="blob-add" class="btn" data-sf="plus.circle">Add manually</button>
+          <button id="blob-sources" class="btn" data-sf="folder.badge.plus">Source folders</button>
+          <button id="blob-collect" class="btn" data-sf="arrow.triangle.2.circlepath">Collect into library</button>
+          <button id="blob-open" class="btn" data-sf="folder">Open folder</button>
+        </header>
+        <div class="split">
+          <div id="blob-devs" class="list"></div>
+          <div id="blob-detail" class="detail"><div class="empty">Select a device to see its blob collection.</div></div>
+        </div>
+      </section>
+
+      <!-- Settings -->
+      <section id="view-settings" class="view">
+        <header class="bar"><h1>Settings</h1></header>
+        <div class="settings">
+          <div class="panel">
+            <h2>Appearance</h2>
+            <div class="theme-seg" id="theme-seg">
+              <button class="seg-btn" data-theme="system" data-sf="circle.lefthalf.filled">System</button>
+              <button class="seg-btn" data-theme="light">Light</button>
+              <button class="seg-btn" data-theme="dark">Dark</button>
+            </div>
+            <p class="hint">System follows the macOS light / dark setting.</p>
+          </div>
+          <div class="panel">
+            <h2>Language</h2>
+            <div class="row-btns" style="justify-content:flex-start">
+              <select id="lang-select" class="no-tr"></select>
+              <button class="btn" id="lang-edit" data-sf="character.bubble">Edit texts</button>
+              <button class="btn" id="lang-folder" data-sf="folder">Open folder</button>
+            </div>
+            <p class="hint">Turkish is a first draft translated from English. Fix any text with Edit texts: your changes are saved to lang/tr.json and override the built-in translation. You can also add a new language there.</p>
+          </div>
+          <div class="panel">
+            <h2>App Store account <small>ipatool · library and downloads</small></h2>
+            <div id="store-state"></div>
+            <form id="store-form" class="form">
+              <input name="email" type="email" placeholder="Apple ID" required />
+              <input name="password" type="password" placeholder="Password" required />
+              <input name="code" placeholder="2FA code (if asked)" class="hidden" />
+              <button class="btn primary">Sign in</button>
+            </form>
+            <div id="store-prep" class="notice hidden"><i class="sf" style="--sf:url('sf/hourglass.png')"></i><div>On first sign-in ipatool pulls Apple's authentication files out of a macOS restore image. This one-time step can take 10–30 min depending on your connection; don't close the app. Later sign-ins take seconds.</div></div>
+          </div>
+          <div class="panel">
+            <h2>Signing account <small>Impactor · install by re-signing</small></h2>
+            <div id="dev-state"></div>
+            <form id="devacc-form" class="form">
+              <input name="email" type="email" placeholder="Apple ID" required />
+              <input name="password" type="password" placeholder="Password" required />
+              <button class="btn primary">Sign in</button>
+            </form>
+            <p class="hint">Note: encrypted (FairPlay) App Store IPAs don't launch once re-signed; install them with <b>Install directly</b> on a device signed in with the buying account.</p>
+          </div>
+          <div class="panel">
+            <h2>Archive folder</h2>
+            <code id="root-path"></code>
+          </div>
+          <div class="panel">
+            <h2>File names <small>IPA / PKG saved to the archive</small></h2>
+            <input id="pref-template" class="mono" spellcheck="false" />
+            <div class="hint">Example: <code id="pref-preview"></code></div>
+            <table class="tokens">
+              <tr><td><code>&lt;Appname&gt;</code></td><td>App name as shown on the device (CFBundleDisplayName)</td><td class="dim">Minecraft</td></tr>
+              <tr><td><code>&lt;name&gt;</code></td><td>App Store name (for dumps: the original IPA's store name)</td><td class="dim">Minecraft: Dream it! Build it!</td></tr>
+              <tr><td><code>&lt;version&gt;</code></td><td>Version (CFBundleShortVersionString)</td><td class="dim">0.3.3</td></tr>
+              <tr><td><code>&lt;BuildNo&gt;</code></td><td>Build number (CFBundleVersion)</td><td class="dim">0.3.3.1</td></tr>
+              <tr><td><code>&lt;BundleID&gt;</code></td><td>Bundle identifier</td><td class="dim">com.mojang.minecraftpe</td></tr>
+              <tr><td><code>&lt;ExternalVersionID&gt;</code></td><td>App Store version ID. Dumps take it from the original IPA; if unknown it stays empty and its brackets are removed.</td><td class="dim">9470435</td></tr>
+            </table>
+            <p class="hint">Dumps (decrypted IPAs) get <code>.decrypted</code> added automatically. If a file with the same name exists, <code>(2)</code> is appended.</p>
+            <div class="row-btns" style="justify-content:flex-start">
+              <button id="pref-tpl-reset" class="btn">Default</button>
+              <button id="pref-rename" class="btn" data-sf="pencil">Rename existing files</button>
+            </div>
+          </div>
+          <div class="panel">
+            <h2>Dumps and archive</h2>
+            <label class="sw"><input type="checkbox" class="switch" data-pref="deleteOriginalAfterDump"><span>Replace the FairPlay-locked IPA in the archive with the dump</span></label>
+            <label class="sw"><input type="checkbox" class="switch" data-pref="removeAfterDump"><span>Remove the app from the device after dumping</span></label>
+            <p class="hint">With the first one off, originals and dumps are kept side by side and each dump is shown right below its original. The second one is the same switch as in the Archive's "Select to dump" bar.</p>
+          </div>
+          <div class="panel">
+            <h2>Library</h2>
+            <label class="sw"><input type="checkbox" class="switch" data-pref="autoVersionHistory"><span>Load version history automatically when an app is selected</span></label>
+            <p class="hint">When off, version history is loaded with the "Load version history" button.</p>
+          </div>
+          <div class="panel">
+            <h2>Import IPAs from Archive.org</h2>
+            <div class="row-btns" style="justify-content:flex-start">
+              <input id="ia-url" class="grow" placeholder="https://archive.org/details/…" spellcheck="false" />
+              <button id="ia-load" class="btn primary" data-sf="list.bullet">List</button>
+            </div>
+            <div id="ia-box"></div>
+          </div>
+          <div class="panel credits">
+            <h2>About</h2>
+            <p><b>iPacked</b> · <span class="no-tr">Made by <a href="#" id="credit-link">Xmior</a> aka Caferius.</span></p>
+            <p class="hint mono">github.com/Xmior</p>
+            <p class="hint" id="about-ver"></p>
+            <h3 style="margin:16px 0 4px;font-size:13px">Special thanks</h3>
+            <p class="hint" style="margin-top:4px;line-height:1.6">
+              iPacked stands on the shoulders of great open-source work.
+              Device communication, signing and installing are powered by
+              <a href="#" data-open="https://github.com/claration/Impactor">Impactor</a> by Samara M.
+              App Store sign-in, purchases, version history and downloads come from
+              <a href="#" data-open="https://github.com/majd/ipatool">ipatool</a> by Majd Alfhaily.
+              SHSH blob saving and ApNonce reading are ported from
+              <a href="#" data-open="https://github.com/airsquared/blobsaver">blobsaver</a> by airsquared.
+              Legacy iOS support uses <a href="#" data-open="https://github.com/jkcoxson/idevice">idevice</a> by jkcoxson,
+              blob requests use <a href="#" data-open="https://github.com/1Conan/tsschecker">tsschecker</a>,
+              and firmware data comes from <a href="#" data-open="https://appledb.dev">AppleDB</a>.
+              Thank you all!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="dump-panel" class="dl-panel hidden"></div>
+  <div id="log-panel" class="dl-panel log-panel hidden"></div>
+  <dialog id="modal"><form method="dialog" id="modal-body"></form></dialog>
+  <div id="toast"></div>
+  <script src="app.js"></script>
+  <script src="guide.js"></script>
+  <script src="lang-tr.js"></script>
+  <script src="i18n.js"></script>
+</body>
+</html>
