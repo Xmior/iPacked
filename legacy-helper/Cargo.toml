@@ -2,6 +2,7 @@
 name = "ipacked-legacy"
 version = "0.1.0"
 edition = "2024"
+license = "GPL-3.0-only"
 description = "iPacked helper for old iOS devices (SSLv3/TLS1.0 via OpenSSL): AFC2 upload, SpringBoard icons"
 
 [dependencies]

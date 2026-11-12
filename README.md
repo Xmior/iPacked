@@ -16,6 +16,7 @@ Download old versions of the apps you own, keep them forever, install them on an
 ![Rust](https://img.shields.io/badge/Rust-backend-orange?logo=rust)
 ![Universal](https://img.shields.io/badge/Apple%20Silicon%20%2B%20Intel-universal-blue)
 ![Languages](https://img.shields.io/badge/languages-English%20%7C%20T%C3%BCrk%C3%A7e-green)
+![License](https://img.shields.io/badge/license-GPL--3.0-blue)
 
 
 <img src="docs/screenshots/hero.png" alt="iPacked main window">
@@ -182,6 +183,18 @@ npm install -g bagbak                                          # bagbak + Frida 
 
 ### Where data lives
 `~/Documents/iPacked/`: `<bundleId>/<version>_<external-id>.ipa`, `index.json`, `icons/`, `cache.json`, `.impactor/` (signing account and certificates, **keep private**).
+
+---
+
+## License
+
+iPacked is free software, licensed under the **[GNU General Public License v3.0](LICENSE)** (GPL-3.0-only).
+
+Copyright (C) 2026 Xmior
+
+You can use, study, share and modify it. If you distribute a modified version, it must stay open source under the same license.
+
+Why GPL-3.0? iPacked's SHSH blob saving and ApNonce reading are ported from [blobsaver](https://github.com/airsquared/blobsaver), which is GPL-3.0. The other projects it uses are MIT (Impactor, ipatool, idevice) or LGPL-3.0 (tsschecker), all compatible with GPL-3.0. Their own license notices are kept with their code.
 
 ---
 

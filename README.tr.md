@@ -15,6 +15,7 @@ Sahip olduğun uygulamaların eski sürümlerini indir, sonsuza kadar sakla, her
 ![Rust](https://img.shields.io/badge/Rust-backend-orange?logo=rust)
 ![Universal](https://img.shields.io/badge/Apple%20Silicon%20%2B%20Intel-universal-blue)
 ![Diller](https://img.shields.io/badge/diller-English%20%7C%20T%C3%BCrk%C3%A7e-green)
+![Lisans](https://img.shields.io/badge/lisans-GPL--3.0-blue)
 
 <img src="docs/screenshots/hero.png" alt="iPacked ana pencere">
 
@@ -175,6 +176,18 @@ npm install -g bagbak                                          # bagbak + Frida 
 
 ### Veriler nerede durur
 `~/Documents/iPacked/`: `<bundleId>/<sürüm>_<harici-id>.ipa`, `index.json`, `icons/`, `cache.json`, `.impactor/` (imzalama hesabı ve sertifikalar, **gizli tut**).
+
+---
+
+## Lisans
+
+iPacked özgür bir yazılımdır ve **[GNU Genel Kamu Lisansı v3.0](LICENSE)** (GPL-3.0-only) ile lisanslanmıştır.
+
+Copyright (C) 2026 Xmior
+
+Kullanabilir, inceleyebilir, paylaşabilir ve değiştirebilirsin. Değiştirilmiş bir sürümü dağıtırsan, o da aynı lisansla açık kaynak kalmak zorundadır.
+
+Neden GPL-3.0? iPacked'in SHSH blob kaydetme ve ApNonce okuma kodu GPL-3.0 lisanslı [blobsaver](https://github.com/airsquared/blobsaver)'dan aktarıldı. Kullandığı diğer projeler MIT (Impactor, ipatool, idevice) ya da LGPL-3.0 (tsschecker) lisanslı ve hepsi GPL-3.0 ile uyumlu. Bu projelerin kendi lisans bildirimleri kodlarıyla birlikte duruyor.
 
 ---
 
