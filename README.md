@@ -9,7 +9,7 @@
 
 **Your entire App Store history — every version, every platform — archived on your Mac.**
 
-Download old versions of the apps you own, keep them forever, install them on any iPhone or iPad (even iOS 5), save SHSH blobs and dump decrypted IPAs. All in one native macOS app.
+Download old versions of the apps you own, keep them forever, install them on any iPhone or iPad, save SHSH blobs and dump decrypted IPAs. All in one native macOS app.
 
 ![macOS](https://img.shields.io/badge/macOS-12%2B-black?logo=apple)
 ![Tauri](https://img.shields.io/badge/Tauri-2-24C8DB?logo=tauri)
