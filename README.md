@@ -1,6 +1,6 @@
 <div align="center">
 
-<!-- 📸 SS-0: Uygulama ikonu (src-tauri/icons/icon-default-1024.png, 128px küçültülmüş) -->
+<!-- App icon (generated from src-tauri/icons/icon.png) -->
 <img src="docs/screenshots/icon.png" width="128" alt="iPacked icon">
 
 # iPacked
@@ -15,7 +15,7 @@ Download old versions of the apps you own, keep them forever, install them on an
 ![Universal](https://img.shields.io/badge/Apple%20Silicon%20%2B%20Intel-universal-blue)
 ![Languages](https://img.shields.io/badge/languages-English%20%7C%20T%C3%BCrk%C3%A7e-green)
 
-<!-- 📸 SS-1 (HERO): Ana pencere, Library > All, bir uygulamanın sürüm listesi açık. Açık + koyu tema yan yana olursa harika olur. -->
+
 <img src="docs/screenshots/hero.png" alt="iPacked main window">
 
 </div>
@@ -32,7 +32,7 @@ Sign in with your Apple ID, and iPacked shows every app you've ever bought or do
 > ### 🕰️ An app was removed from the App Store, but it's still in your Apple ID purchases, and you can't get its old versions anymore?
 > **iPacked might be exactly what you're looking for.** It lists every app in your purchase history, including ones that are no longer on the App Store, and lets you pick and download any version Apple still serves for your account, not just the latest one. Bring back the version you remember, archive it, and install it on your device.
 
-<!-- 📸 SS-8: Kaldırılmış bir uygulamanın Library'deki sayfası ("removed from the App Store" uyarısı + sürüm listesi görünsün) -->
+
 ![Removed app](docs/screenshots/removed-app.png)
 
 > Built on the shoulders of three great open-source projects: **[Impactor](#credits)**, **[ipatool](#credits)** and **[blobsaver](#credits)**. See [Credits](#credits).
@@ -48,7 +48,7 @@ Sign in with your Apple ID, and iPacked shows every app you've ever bought or do
 - Universal apps show a **Platforms** row, so you can switch platform and get that platform's builds with one click
 - Developer pages, supported devices, minimum OS, "What's New", add apps by ID or link
 
-<!-- 📸 SS-2: Library: bir uygulamanın detay sayfası, Platforms satırı + sürüm listesi görünsün -->
+
 ![Library](docs/screenshots/library.png)
 
 ### 🗄️ Archive: your personal IPA museum
@@ -57,10 +57,10 @@ Sign in with your Apple ID, and iPacked shows every app you've ever bought or do
 - Built-in **Archive.org** browser to find versions Apple no longer serves
 - Right-click actions: open, show in Finder, get license, refresh icon, install on device
 
-<!-- 📸 SS-3: Archive: farklı platformlardan (TV, Watch, Vision) ikonların göründüğü grid/liste -->
+
 ![Archive](docs/screenshots/archive.png)
 
-<!-- 📸 SS-4 (opsiyonel): Archive.org sekmesi, sıralanmış liste -->
+
 ![Archive.org](docs/screenshots/archive-org.png)
 
 ### 📱 Devices: install anywhere, even on vintage iPhones
@@ -73,7 +73,7 @@ Sign in with your Apple ID, and iPacked shows every app you've ever bought or do
 > **Dump methods: testing is still in progress.** So far only **Clutch** has been tested end to end. Frida-based methods (frida-ios-dump, bagbak + Frida), TrollDecrypt, flexdecrypt, bfdecrypt, CrackerXI+ and dumpdecrypted are included but **not fully tested yet**, so they may not work on every device or iOS version.
 > It's best to **install these tools yourself** from their official sources (on the device and on your Mac) and follow each tool's own instructions. iPacked's guides point you there. Reports and pull requests are very welcome!
 
-<!-- 📸 SS-5: Devices: bağlı cihaz + "Set Device" panelinde yöntem listesi (gri olanlar da görünsün) -->
+
 ![Devices](docs/screenshots/devices.png)
 
 ### 🔐 Blobs: save SHSH2 blobs (blobsaver inside)
@@ -81,7 +81,6 @@ Sign in with your Apple ID, and iPacked shows every app you've ever bought or do
 - **Read ApNonce + generator** directly from the connected device
 - Keep blobs for all your devices in one place
 
-<!-- 📸 SS-6: Blobs ekranı, kayıtlı bloblar + cihaz editörü -->
 ![Blobs](docs/screenshots/blobs.png)
 
 ### ✨ Feels like a Mac app
@@ -89,9 +88,6 @@ Sign in with your Apple ID, and iPacked shows every app you've ever bought or do
 - Keyboard first: **⌘1 to ⌘5** switch sections, **⌘F** search, **⌘R** refresh, **Esc** closes anything
 - Lightweight: the App Store helper quits when idle, and long lists are paged
 - **English and Türkçe** built in. Fix or add translations right in the app (Settings → Language → Edit texts)
-
-<!-- 📸 SS-7 (opsiyonel): Kısa bir GIF: arama → sürüm seç → indir → arşivde görünmesi -->
-![Demo](docs/screenshots/demo.gif)
 
 ---
 
