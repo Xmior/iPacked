@@ -5,6 +5,8 @@
 
 # iPacked
 
+**English · [Türkçe](README.tr.md)**
+
 **Your entire App Store history — every version, every platform — archived on your Mac.**
 
 Download old versions of the apps you own, keep them forever, install them on any iPhone or iPad (even iOS 5), save SHSH blobs and dump decrypted IPAs. All in one native macOS app.
@@ -93,7 +95,7 @@ Sign in with your Apple ID, and iPacked shows every app you've ever bought or do
 
 ## Download
 
-Grab the latest `.dmg` from **[Releases](../../releases)** (e.g. `iPacked_1.2.0_universal.dmg`, runs natively on Apple Silicon and Intel).
+Grab the latest `.dmg` from **[Releases](../../releases)** (e.g. `iPacked_1.2.1_universal.dmg`, runs natively on Apple Silicon and Intel).
 
 | Platform | Status |
 |---|---|
