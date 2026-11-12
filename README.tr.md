@@ -60,7 +60,7 @@ Apple ID'nle giriş yap; iPacked, şimdiye kadar satın aldığın ya da indirdi
 
 ![Archive.org](docs/screenshots/archive-org.png)
 
-### 📱 Cihazlar: her yere kur, eski iPhone'lara bile
+### 📱 Cihazlar: her yere kur, eski ya da yeni her cihaza!
 - iPhone / iPad'i tak, anında algılanır
 - Modern cihazlara **IPA kur**, üstüne **eski iOS desteği** (SSLv3/TLS 1.0 ile iOS 5'e kadar, gerekirse otomatik olarak libimobiledevice'a geçer)
 - Rehberli yöntem seçiciyle **şifresi çözülmüş IPA dump'ı al**: cihaz arşivi, Clutch, dumpdecrypted, flexdecrypt, bfdecrypt, CrackerXI+, frida-ios-dump, bagbak + Frida, TrollDecrypt. iOS sürümüne uymayan yöntemler otomatik olarak gri görünür
@@ -69,6 +69,7 @@ Apple ID'nle giriş yap; iPacked, şimdiye kadar satın aldığın ya da indirdi
 > [!WARNING]
 > **Dump yöntemleri: testler hâlâ sürüyor.** Şimdiye kadar baştan sona sadece **Clutch** test edildi. Frida tabanlı yöntemler (frida-ios-dump, bagbak + Frida), TrollDecrypt, flexdecrypt, bfdecrypt, CrackerXI+ ve dumpdecrypted uygulamada var ama **henüz tam test edilmedi**, her cihazda ya da her iOS sürümünde çalışmayabilir.
 > Bu araçları resmi kaynaklarından (cihaza ve Mac'ine) **kendin kurman** ve her aracın kendi talimatlarını izlemen en iyisi. iPacked'in rehberleri seni oraya yönlendirir. Hata bildirimlerine ve pull request'lere açığız!
+> Yeni cihazlara uygulama kurma henüz test edilmedi.
 
 ![Cihazlar](docs/screenshots/devices.png)
 
